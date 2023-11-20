@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Color+Emoji&family=Noto+Emoji&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,400&family=Material+Symbols+Outlined:opsz,wght@20,700&display=swap"
     />
 
     <style>
@@ -31,12 +31,16 @@
 
         color-scheme: light dark;
 
-        font-family: "Noto Color Emoji", "Merriweather", serif;
+        font-family: "Merriweather", serif;
         font-size: 15px;
         line-height: 1.5;
 
         color: var(--black);
         background-color: var(--white);
+      }
+
+      h1 {
+        font-weight: 400;
       }
 
       a {
@@ -55,12 +59,17 @@
         font-size: 1.25rem;
       }
 
-      .social-icon-logo {
-        height: 1em;
+      .social-icon-symbol {
+        font-family: "Material Symbols Outlined";
+        font-style: normal;
       }
 
       .social-icon-email::before {
-        content: "📧";
+        content: "alternate_email";
+      }
+
+      .social-icon-logo {
+        height: 1em;
       }
 
       .social-icon-github {
@@ -90,10 +99,14 @@
         }
       }
 
+      @media screen {
+        body {
+          margin: 2rem;
+        }
+      }
+
       @media print {
         :root {
-          font-family: "Noto Emoji", "Merriweather", serif;
-
           color: var(--paper-black);
           background-color: var(--paper-white);
         }
@@ -118,10 +131,9 @@
       </hgroup>
     </header>
     <main>
-      <p>I write and read code to solve problems.</p>
       <address class="social-links">
         <span class="social-icon" aria-hidden="true">
-          <span class="social-icon-email"></span>
+          <span class="social-icon-symbol social-icon-email"></span>
         </span>
         <span class="social-link"
           ><a href="mailto:c@chandler.dev">c@chandler.dev</a></span
