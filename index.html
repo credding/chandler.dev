@@ -3,15 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Software Engineer based in Denver, Colorado" />
+    <meta
+      name="description"
+      content="Software Engineer based in Denver, Colorado"
+    />
 
     <title>Chandler Redding</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,400&family=Material+Symbols+Outlined:opsz,wght@20,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&display=swap"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Gelasio:ital@0;1&display=swap"
+      media="print"
     />
 
     <style>
@@ -35,12 +48,18 @@
         font-size: 15px;
         line-height: 1.5;
 
-        color: var(--black);
         background-color: var(--white);
+        color: var(--black);
+      }
+
+      p,
+      h1 {
+        margin-block: 1rem;
       }
 
       h1 {
-        font-weight: 400;
+        font-size: 1.8rem;
+        font-weight: normal;
       }
 
       a {
@@ -48,28 +67,30 @@
       }
 
       .social-links {
+        --social-icon-size-min: 20px;
+        --social-link-gap-min: 8px;
+
+        --social-icon-size: max(var(--social-icon-size-min), 1.25rem);
+        --social-link-gap: max(
+          var(--social-link-gap-min),
+          calc(0.25 * var(--social-icon-size))
+        );
+
         display: grid;
         grid-template-columns: repeat(2, max-content);
-        align-items: center;
+        align-items: end;
         column-gap: 0.5rem;
+        row-gap: var(--social-link-gap);
       }
 
       .social-icon {
-        justify-self: center;
-        font-size: 1.25rem;
+        font-size: var(--social-icon-size);
+        line-height: 1;
       }
 
       .social-icon-symbol {
-        font-family: "Material Symbols Outlined";
-        font-style: normal;
-      }
-
-      .social-icon-email::before {
-        content: "alternate_email";
-      }
-
-      .social-icon-logo {
         height: 1em;
+        width: 1em;
       }
 
       .social-icon-github {
@@ -86,29 +107,36 @@
 
       @media (prefers-color-scheme: dark) {
         :root {
-          color: var(--white);
           background-color: var(--cool-black);
+          color: var(--white);
         }
 
         a {
           color: var(--brighter-blue);
         }
 
-        .social-icon-logo {
+        .social-icon-symbol {
           color: inherit;
         }
       }
 
       @media screen {
         body {
-          margin: 2rem;
+          margin: 20px;
         }
       }
 
       @media print {
         :root {
-          color: var(--paper-black);
+          font-family: "Gelasio", serif;
+          font-size: 11pt;
+
           background-color: var(--paper-white);
+          color: var(--paper-black);
+        }
+
+        body {
+          margin: 0;
         }
 
         a {
@@ -116,7 +144,12 @@
           text-decoration: none;
         }
 
-        .social-icon-logo {
+        .social-links {
+          --social-icon-size-min: 15pt;
+          --social-link-gap-min: 0pt;
+        }
+
+        .social-icon-symbol {
           color: var(--paper-black);
         }
       }
@@ -133,14 +166,23 @@
     <main>
       <address class="social-links">
         <span class="social-icon" aria-hidden="true">
-          <span class="social-icon-symbol social-icon-email"></span>
+          <svg
+            class="social-icon-symbol social-icon-email"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960"
+          >
+            <path
+              fill="currentColor"
+              d="M480.152-60.652q-86.521 0-162.953-32.76-76.432-32.758-133.73-90.057-57.299-57.298-90.058-133.714-32.759-76.416-32.759-163.295 0-86.879 32.76-162.817 32.758-75.938 90.057-133.236 57.298-57.299 133.714-90.058 76.416-32.759 163.295-32.759 86.879 0 162.817 32.759t133.236 90.058q57.299 57.298 90.058 133.293 32.759 75.994 32.759 162.999v72.848q0 61.478-44.035 104.195-44.035 42.718-106.552 42.718-35.016 0-64.964-15.598-29.949-15.598-54.392-41.033-29.644 27.435-68.286 42.033-38.641 14.598-81.119 14.598-91.061 0-155.291-64.297-64.231-64.296-64.231-155.451 0-91.155 64.297-155.225 64.296-64.071 155.451-64.071 91.155 0 155.225 64.231 64.071 64.23 64.071 155.291v70.696q0 19.516 15.119 33.497 15.12 13.981 34.353 13.981 18.995 0 33.881-13.981t14.886-33.497v-70.935q0-131.761-93-224.641-93-92.881-224.761-92.881t-224.761 93q-93 93-93 224.761t92.669 224.761q92.669 93 225.103 93h195.511v101.587h-195.37Zm.008-301.174q49.166 0 83.59-34.584 34.424-34.584 34.424-83.75t-34.584-83.59q-34.584-34.424-83.75-34.424t-83.59 34.584q-34.424 34.584-34.424 83.75t34.584 83.59q34.584 34.424 83.75 34.424Z"
+            />
+          </svg>
         </span>
-        <span class="social-link"
-          ><a href="mailto:c@chandler.dev">c@chandler.dev</a></span
-        >
+        <span class="social-link">
+          <a href="mailto:c@chandler.dev">c@chandler.dev</a>
+        </span>
         <span class="social-icon" aria-hidden="true">
           <svg
-            class="social-icon-logo social-icon-github"
+            class="social-icon-symbol social-icon-github"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 98 96"
           >
@@ -150,17 +192,18 @@
             />
           </svg>
         </span>
-        <span class="social-link"
-          ><a
+        <span class="social-link">
+          <a
+            class="social-link"
             href="https://github.com/credding"
             rel="noopener noreferrer"
             target="_blank"
             >github.com/credding</a
-          ></span
-        >
+          >
+        </span>
         <span class="social-icon" aria-hidden="true">
           <svg
-            class="social-icon-logo social-icon-linkedin"
+            class="social-icon-symbol social-icon-linkedin"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="2 2 20 20"
           >
@@ -170,14 +213,15 @@
             />
           </svg>
         </span>
-        <span class="social-link"
-          ><a
+        <span class="social-link">
+          <a
+            class="social-link"
             href="https://www.linkedin.com/in/chandlerredding/"
             rel="noopener noreferrer"
             target="_blank"
             >linkedin.com/in/chandlerredding</a
-          ></span
-        >
+          >
+        </span>
       </address>
     </main>
   </body>
