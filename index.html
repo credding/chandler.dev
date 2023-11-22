@@ -3,23 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chandler Redding</title>
     <meta
       name="description"
       content="Software Engineer based in Denver, Colorado"
     />
-
-    <title>Chandler Redding</title>
 
     <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&display=swap"
+      as="style"
+      onload="this.onload = null; this.rel = 'stylesheet';"
       media="screen"
     />
+
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&display=swap"
+        media="screen"
+      />
+    </noscript>
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Gelasio:ital@0;1&display=swap"
@@ -43,12 +55,16 @@
 
         color-scheme: light dark;
 
-        font-family: "Merriweather", serif;
+        font-family: "Merriweather", "Georgia", serif;
         font-size: 15px;
         line-height: 1.5;
 
         background-color: var(--white);
         color: var(--black);
+      }
+
+      body {
+        margin: 20px;
       }
 
       p,
@@ -104,7 +120,7 @@
         justify-self: start;
       }
 
-      @media (prefers-color-scheme: dark) {
+      @media screen and (prefers-color-scheme: dark) {
         :root {
           background-color: var(--cool-black);
           color: var(--white);
@@ -119,15 +135,9 @@
         }
       }
 
-      @media screen {
-        body {
-          margin: 20px;
-        }
-      }
-
       @media print {
         :root {
-          font-family: "Gelasio", serif;
+          font-family: "Gelasio", "Georgia", serif;
           font-size: 11pt;
 
           background-color: var(--paper-white);
@@ -149,7 +159,7 @@
         }
 
         .social-icon-symbol {
-          color: var(--paper-black);
+          color: inherit;
         }
       }
     </style>
